@@ -1,8 +1,8 @@
 <template>
       <nav class="mod_nav">
-            <router-link :to="{name: 'Recom',params:{type:recom}}" >推荐</router-link>
-            <router-link :to="{name: 'Toplist',params:{type:toplist}}" >排行榜</router-link>
-            <router-link :to="{name: 'Search',params:{type:search}}" >搜索</router-link>
+            <router-link :to="{name: 'Recom'}" >推荐</router-link>
+            <router-link :to="{name: 'Toplist'}" >排行榜</router-link>
+            <router-link :to="{name: 'Search'}" >搜索</router-link>
       </nav>
 </template>
 

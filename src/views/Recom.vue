@@ -1,16 +1,16 @@
 <template>
       <div id="recom_wrap" style="">
-          推荐
+          <mod-carousel></mod-carousel>
       </div>
 </template>
 
 <script>
-
+import ModCarousel from '../components/ModCarousel'
 
 export default {
   name: 'Recom',
   components:{
-
+    ModCarousel
   },
   data () {
     return {

@@ -5,38 +5,37 @@ import Recom from '../views/Recom'
 import Toplist from '../views/Toplist'
 import Search from '../views/Search'
 
-
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
       path: '/',
-      redirect: "/pages/"
+      redirect: '/pages/'
     },
     {
       path: '/pages',
-      component:PagesView,
-      children:[
+      component: PagesView,
+      children: [
         {
           path: '',
-          redirect:"/pages/recom",
+          redirect: '/pages/recom'
         },
         {
           path: 'recom',
           name: 'Recom',
-          component:Recom,
+          component: Recom
         },
         {
           path: 'toplist',
           name: 'Toplist',
-          component:Toplist,
+          component: Toplist
         },
         {
           path: 'search',
           name: 'Search',
-          component:Search,
-        },
+          component: Search
+        }
       ]
     }
   ]
