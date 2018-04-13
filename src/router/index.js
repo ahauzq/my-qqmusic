@@ -8,35 +8,33 @@ import Search from '../views/Search'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      redirect: '/pages/'
+  routes: [{
+    path: '/',
+    redirect: '/pages/'
+  },
+  {
+    path: '/pages',
+    component: PagesView,
+    children: [{
+      path: '',
+      redirect: '/pages/recom'
     },
     {
-      path: '/pages',
-      component: PagesView,
-      children: [
-        {
-          path: '',
-          redirect: '/pages/recom'
-        },
-        {
-          path: 'recom',
-          name: 'Recom',
-          component: Recom
-        },
-        {
-          path: 'toplist',
-          name: 'Toplist',
-          component: Toplist
-        },
-        {
-          path: 'search',
-          name: 'Search',
-          component: Search
-        }
-      ]
+      path: 'recom',
+      name: 'Recom',
+      component: Recom
+    },
+    {
+      path: 'toplist',
+      name: 'Toplist',
+      component: Toplist
+    },
+    {
+      path: 'search',
+      name: 'Search',
+      component: Search
     }
+    ]
+  }
   ]
 })
