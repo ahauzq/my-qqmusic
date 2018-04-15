@@ -18,9 +18,19 @@ ul,
 li,
 a,
 h2,
+p,
 h3 {
   margin: 0;
   padding: 0;
+}
+h3 {
+  font-size: 16px;
+  color: #000;
+  font-weight: normal;
+  margin-bottom: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 body {
   background: #f4f4f4;

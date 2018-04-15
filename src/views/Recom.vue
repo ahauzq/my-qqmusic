@@ -9,9 +9,7 @@
             <h2 class="list_title">热门歌单</h2>
             <ul id="songlist_wrapper" class="list_container">
             </ul>
-            <p class="list_more">
-                <a class="tip" href="javascript:;">去客户端发现更多好音乐 &gt;</a>
-            </p>
+            <list-more></list-more>
         </div>
         <mod-footer></mod-footer>
     </div>
@@ -21,13 +19,15 @@
 import ModCarousel from "../components/ModCarousel";
 import RadioList from "../components/RadioList";
 import ModFooter from "../components/ModFooter";
+import ListMore from "../components/ListMore";
 
 export default {
   name: "Recom",
   components: {
     ModCarousel,
     RadioList,
-    ModFooter
+    ModFooter,
+    ListMore
   },
   data() {
     return {};
@@ -54,16 +54,5 @@ export default {
   color: #000;
   margin-bottom: 11px;
   font-weight: normal;
-}
-.list_more {
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
-  .tip {
-    display: inline-block;
-    padding: 0 10px;
-    font-size: 14px;
-    color: rgba(0, 0, 0, 0.6);
-  }
 }
 </style>

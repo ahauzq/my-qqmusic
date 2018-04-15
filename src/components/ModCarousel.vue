@@ -42,7 +42,7 @@ export default {
         },
         loop: true,
         autoplay: {
-          delay: 3000,
+          delay: 4000,
           stopOnLastSlide: false,
           disableOnInteraction: true
         }

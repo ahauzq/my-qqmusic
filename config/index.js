@@ -15,6 +15,11 @@ module.exports = {
         target: 'https://c.y.qq.com',
         secure: true,
         changeOrigin: true //允许跨域请求
+      },
+      '/v8/fcg-bin': {
+        target: 'https://c.y.qq.com',
+        secure: true,
+        changeOrigin: true //允许跨域请求
       }
     },
     // Various Dev Server settings

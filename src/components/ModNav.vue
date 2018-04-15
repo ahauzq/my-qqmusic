@@ -20,6 +20,7 @@ export default {
 <style lang="scss" scoped>
 .mod_nav {
   display: flex;
+  background: #fff;
   a {
     flex: 1 1 auto;
     position: relative;
