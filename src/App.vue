@@ -17,11 +17,14 @@ body,
 ul,
 li,
 a,
-h2 {
+h2,
+h3 {
   margin: 0;
   padding: 0;
 }
-
+body {
+  background: #f4f4f4;
+}
 li {
   list-style: none;
 }

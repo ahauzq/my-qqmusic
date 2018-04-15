@@ -23,9 +23,7 @@ export default {
   data() {
     return {};
   },
-  mounted() {
-    this.lunbo();
-  },
+  mounted() {},
   updated() {
     this.lunbo();
   },
@@ -57,15 +55,6 @@ export default {
 <style lang="scss" scoped>
 .swiper-slide {
   height: 165px;
-  //   &:nth-child(3n + 1) {
-  //     background-color: yellow;
-  //   }
-  //   &:nth-child(3n + 2) {
-  //     background-color: blue;
-  //   }
-  //   &:nth-child(3n + 3) {
-  //     background-color: green;
-  //   }
   img {
     width: 100%;
     height: 100%;
@@ -73,5 +62,6 @@ export default {
 }
 .mod_carousel {
   position: relative;
+  margin-bottom: 14px;
 }
 </style>
