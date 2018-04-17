@@ -57,12 +57,12 @@
                 <ul class="qui_list qui_list--rank">
                     <li class="qui_list__item  js_play_song" v-for="(item,index ) in songlist" :key="index" :songid="item.data.songid" :songmid="item.data.songmid" :songtype="item.data.songtype">
                         <div class="qui_list__order">
-                            <span class="qui_list__decimal">{{item.cur_count}}</span>
+                            <span class="qui_list__decimal">{{index+1}}</span>
                         </div>
                         <div class="qui_list__bd">
                             <div class="qui_list__box">
                                 <h3 class="qui_list__tit">
-                                    <span class="qui_list__txt">{{item.data.albumname}}</span>
+                                    <span class="qui_list__txt">{{item.data.songname}}</span>
                                 </h3>
                                 <p class="qui_list__desc">
                                     <span class="qui_list__txt">
@@ -409,6 +409,7 @@ export default {
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+        font-weight: 300;
       }
       .qui_list__desc {
       }
