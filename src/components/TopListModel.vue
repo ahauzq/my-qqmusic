@@ -1,6 +1,6 @@
 <template>
     <ul>
-        <li v-for="item in topList" :key="item.id" class="topic_item" data-id="item.id" data-type="0">
+        <li v-for="item in topList" :key="item.id" class="topic_item" :id="item.id" data-type="0" @click="toTopDetail">
             <div class="topic_main">
                 <a href="javascript:;" class="topic_media">
                     <img :src="item.picUrl">
@@ -32,6 +32,19 @@ export default {
     ...mapState({
       topList: state => state.toplist.topList
     })
+  },
+  methods: {
+    toTopDetail(event) {
+      console.log(event);
+      //this.$router.push({name: "TopDetail",query: { id: event.currentTarget.id }}); //结果http://localhost:9090/#/topdetail?id=4
+      //或者有path的情况param参数不生效  //this.$router.push({ path: "topdetail", query: { id: event.currentTarget.id } });
+
+      //路由传递props
+      this.$router.push({
+        name: "TopDetail",
+        params: { id: event.currentTarget.id }
+      });
+    }
   }
 };
 </script>
@@ -42,7 +55,7 @@ export default {
   overflow: hidden;
   .topic_main {
     background: #fff;
-    display: -webkit-box;
+    display: flex;
   }
   .topic_media {
     position: relative;
@@ -79,13 +92,9 @@ export default {
   }
   .topic_info {
     position: relative;
-    -webkit-box-flex: 1;
-    display: -webkit-box;
-    width: 100%;
-    -webkit-box-align: center;
-    -webkit-box-pack: center;
+    flex: 1 1 auto;
+    overflow: hidden;
     .topic_cont {
-      flex: 1;
       margin: 0 13px 0 12px;
     }
     .topic_tit {

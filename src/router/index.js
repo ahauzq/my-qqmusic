@@ -4,6 +4,7 @@ import PagesView from '../views/PagesView'
 import Recom from '../views/Recom'
 import Toplist from '../views/Toplist'
 import Search from '../views/Search'
+import TopDetailView from '../views/TopDetailView'
 
 Vue.use(Router)
 
@@ -35,6 +36,12 @@ export default new Router({
       component: Search
     }
     ]
+  },
+  {
+    path: '/topdetail/:id',
+    name: 'TopDetail',
+    component: TopDetailView,
+    props: true
   }
   ]
 })

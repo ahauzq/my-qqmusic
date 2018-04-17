@@ -14,6 +14,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "alloytouch": "^0.2.5",
     "axios": "^0.18.0",
     "superagent": "^3.8.2",
     "superagent-jsonp": "^0.2.1",
