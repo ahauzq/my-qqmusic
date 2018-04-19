@@ -46,8 +46,10 @@ h3 {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-body {
-  background: #f4f4f4;
+html,
+body,
+#app {
+  height: 100%;
 }
 li {
   list-style: none;

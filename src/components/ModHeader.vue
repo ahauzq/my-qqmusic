@@ -1,7 +1,7 @@
 <template>
     <header class="mod_header">
         <i class="music_logo">QQ音乐</i>
-        <a href="javascript:;" class="btn_download">下载APP</a>
+        <a href="https://github.com/ahauzq/my-qqmusic" class="btn_download">github</a>
     </header>
 </template>
 

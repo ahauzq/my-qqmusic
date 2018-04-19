@@ -1,7 +1,7 @@
 <template>
     <div id="toplist_wrap" style="mod_topic current_page loaded">
         <top-list-model></top-list-model>
-        <list-more></list-more>
+        <!-- <list-more></list-more> -->
     </div>
 </template>
 
@@ -23,6 +23,7 @@ export default {
     }
   },
   created() {
+    this.$store.dispatch("addLoading");
     this.getTopList();
   }
 };
@@ -31,6 +32,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #toplist_wrap {
+  position: relative;
+  z-index: 0;
   margin: 10px;
 }
 </style>

@@ -36,7 +36,7 @@
                         <h6 class="top_bar__tit">QQ音乐</h6>
                         <p class="top_bar__desc">打开APP收藏、下载</p>
                     </div>
-                    <a class="top_bar__btn js_open_music" style="" data-type="1" href="javascript:;">ahauzq</a>
+                    <a class="top_bar__btn js_open_music" style="" data-type="1" href="https://github.com/ahauzq/my-qqmusic">github</a>
                 </div>
                 <div class="album" id="js_album_info">
                     <div class="album__media js_open_music" data-type="3">
@@ -101,9 +101,9 @@
                                     </span>
                                 </p>
                             </div>
-                            <div class="qui_list__more">
+                            <!-- <div class="qui_list__more">
                                 <i class="qui_list__dot"></i>
-                            </div>
+                            </div> -->
                         </div>
                     </li>
                 </ul>
@@ -205,7 +205,7 @@ export default {
       this.playAllShow = false;
       //this._play();
       this.play = true;
-      //todo默认播放第一首
+
       let songids = [],
         songtype = [],
         arr = this.data.songlist.slice(0, 20);
@@ -218,6 +218,7 @@ export default {
         this._getSongUrl(songids, songtype, resolve);
       });
       promise.then(res => {
+        //todo 需要维护一个播放列表（从而引入一个问题怎么设置 怎么清空）
         this.playSingleSong(0);
       });
       //this._setTask(songids, songtype);
@@ -338,8 +339,6 @@ export default {
       axios
         .post("cgi-bin/musicu.fcg", paramData)
         .then(res => {
-          console.log(res);
-          console.log(res.data.url_mid.data.midurlinfo);
           res.data.url_mid.data.midurlinfo.forEach((item, index) => {
             this.mapUrlInfo[item.songmid] = item.purl;
             if (resolve) {
@@ -622,6 +621,7 @@ export default {
         justify-content: center;
         width: 45px;
         margin-right: -16px;
+        flex: 0 0 auto;
         .qui_list__decimal {
           font-size: 16px;
         }
@@ -637,6 +637,7 @@ export default {
       .qui_list__box {
         flex: 1 1 auto;
         display: flex;
+        width: 100%;
         flex-direction: column;
         align-items: vertical;
       }

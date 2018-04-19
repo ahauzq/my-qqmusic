@@ -4,6 +4,9 @@
         <mod-header></mod-header>
         <mod-nav></mod-nav>
         <div id="content_wrapper">
+            <div class="loading" v-if="pageLoading">
+                <img src="../../static/svg/ball-triangle.svg" alt="">
+            </div>
             <router-view></router-view>
         </div>
     </div>
@@ -12,6 +15,7 @@
 <script>
 import ModHeader from "../components/ModHeader";
 import ModNav from "../components/ModNav";
+import { mapState } from "vuex";
 
 export default {
   name: "PagesView",
@@ -21,11 +25,23 @@ export default {
   },
   data() {
     return {};
+  },
+  computed: {
+    ...mapState({ pageLoading: state => state.loading.loading })
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
+<style lang="scss" scoped>
+.loading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  z-index: 1;
+}
 </style>

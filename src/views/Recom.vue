@@ -38,13 +38,22 @@ export default {
     }
   },
   created() {
+    this.$store.dispatch("addLoading");
     this.getRecom();
+  },
+  beforeUpdate() {
+    console.log("beforeUpdate");
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+#recom_wrap {
+  position: relative;
+  z-index: 0;
+  background: #f4f4f4;
+}
 .mod_twocol_list {
   margin-left: 10px;
   margin-right: 10px;
