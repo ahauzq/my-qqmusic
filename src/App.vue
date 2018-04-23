@@ -6,56 +6,12 @@
 </template>
 
 <script>
+import "../src/assets/scss/common.scss";
 export default {
   name: "App"
 };
 </script>
 
 <style>
-html,
-body,
-ul,
-li,
-a,
-h2,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-  padding: 0;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-size: 100%;
-  font-weight: 300;
-}
-h3 {
-  font-size: 16px;
-  color: #000;
-  font-weight: normal;
-  margin-bottom: 5px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-html,
-body,
-#app {
-  height: 100%;
-}
-li {
-  list-style: none;
-}
 
-a {
-  text-decoration: none;
-}
 </style>

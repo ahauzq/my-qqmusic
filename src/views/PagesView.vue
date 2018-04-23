@@ -34,6 +34,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+.pages_view {
+  background: #f4f4f4;
+}
 .loading {
   position: fixed;
   width: 100%;
