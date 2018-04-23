@@ -1,6 +1,6 @@
 <template>
     <ul id="radio_wrapper" class="list_container">
-        <li v-for="item in  radioList" :item="item" :key="item.radioid" data-tjname="recom_radio" class="js_play_radio">
+        <li v-for="item in  radioList" :item="item" :key="item.radioid" data-tjname="recom_radio" class="js_play_radio" @click="toDetail(item.radioid)">
             <a class="list_main" href="javascript:;">
                 <div class="list_media">
                     <img class="list_pic" :src="item.picUrl" alt="">
@@ -16,6 +16,7 @@
 
 <script>
 import { mapState } from "vuex";
+import axios from "axios";
 
 let mySwiper;
 export default {
@@ -30,7 +31,39 @@ export default {
       radioList: state => state.recom.radioList
     })
   },
-  methods: {}
+  methods: {
+    toDetail(id) {
+      let url =
+        "v8/fcg-bin/fcg_v8_radiosonglist.fcg?labelid=" +
+        id +
+        "&g_tk=5381&uin=0&format=json&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1";
+      axios
+        .get(url)
+        .then(res => {
+          if (
+            res.data &&
+            0 == res.data.code &&
+            res.data.data &&
+            !(res.data.data.length < 1)
+          ) {
+            let a = [];
+            res.data.data.forEach(item => {
+              a.push(item.id);
+            });
+            a.sort(function() {
+              return Math.random() - Math.random();
+            });
+            location.href =
+              "//i.y.qq.com/v8/playsong.html?ADTAG=myqq&from=myqq&channel=10007100" +
+              "&songid=" +
+              a.join(",");
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  }
 };
 </script>
 

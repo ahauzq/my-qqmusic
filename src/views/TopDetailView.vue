@@ -109,7 +109,7 @@
                 </ul>
             </div>
         </div>
-        <audio ref="audio" data-web-player="1" style="height:0;width:0;display:none" preload src="http://dl.stream.qqmusic.qq.com/C400004Q0PQm2qkYEK.m4a?guid=7446189854&amp;vkey=5589331B5754131D3AFDC16BB4128E80836712C2ED84212D7F8249670CFEEB6381C527EC9FE2C96A0B28579F2F44FC5A4A38BC7EAA2B8C3B&amp;uin=0&amp;fromtag=38"></audio>
+        <audio ref="audio" data-web-player="1" style="height:0;width:0;display:none" preload src=""></audio>
     </div>
 </template>
 
