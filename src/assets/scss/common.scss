@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html,
 body,
 ul,
@@ -47,4 +51,14 @@ li {
 
 a {
   text-decoration: none;
+}
+
+input:focus,
+textarea:focus,
+button:focus {
+  outline: 0;
+}
+
+.hidden {
+  display: none;
 }
