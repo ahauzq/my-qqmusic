@@ -16,6 +16,7 @@
   "dependencies": {
     "alloytouch": "^0.2.5",
     "axios": "^0.18.0",
+    "lodash": "^4.17.10",
     "superagent": "^3.8.2",
     "superagent-jsonp": "^0.2.1",
     "swiper": "^4.2.2",

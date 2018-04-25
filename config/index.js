@@ -26,6 +26,16 @@ module.exports = {
         secure: true,
         changeOrigin: true //允许跨域请求
       },
+      '/splcloud/fcgi-bin': {
+        target: 'https://c.y.qq.com',
+        secure: true,
+        changeOrigin: true //允许跨域请求
+      },
+      '/soso/fcgi-bin': {
+        target: 'https://c.y.qq.com',
+        secure: true,
+        changeOrigin: true //允许跨域请求
+      },
     },
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
