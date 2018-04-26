@@ -8,19 +8,19 @@
             </div>
             <div id="cancelBtn" class="cancel-btn" v-show="showCancelBtn" @click="removeCancelBtn">取消</div>
         </div>
-        <div id="hot_keys" class="mod_search_result" v-show="!showHistory">
+        <div id="hot_keys" class="mod_search_result" v-show="!showHistory && !showSongList">
             <h3 class="result_tit">热门搜索</h3>
             <div class="result_tags">
-                <a v-if="special.special_key" :href="special.special_url" class="tag_s tag_hot">{{special.special_key}}</a>
-                <a v-for="item in hotkey" :key="item.n" href="" class="tag_s">{{item.k}}</a>
+                <span v-if="special.special_key" :href="special.special_url" class="tag_s tag_hot">{{special.special_key}}</span>
+                <span v-for="item in hotkey" :key="item.n" href="" class="tag_s" @click="search(item.k)">{{item.k}}</span>
             </div>
         </div>
         <div id="focus_wrapper" v-show="showHistory && !showSongList">
             <ul class="mod_search_record">
-                <li v-for="(item,index) in searchInputArr" :key="index">
+                <li v-for="(item,index) in searchInputArr" :key="index" @click="search(item)">
                     <span class="icon iocn_clock"></span>
                     <span class="js_keyword record_con">{{item}}</span>
-                    <span class="js_del_record icon icon_close" @click="deleteHistory(index)"></span>
+                    <span class="js_del_record icon icon_close" @click.stop.prevent="deleteHistory(index)"></span>
                 </li>
             </ul>
             <p v-if="searchInputArr.length>0" class="record_handle">
@@ -49,7 +49,7 @@
                     </div>
                 </li>
             </ul>
-            <div class="loading" v-if="loading">
+            <div class="loading" v-show="loading">
                 <img src="../../static/svg/ball-triangle.svg" alt="">
             </div>
         </div>
@@ -92,8 +92,9 @@ export default {
       scrollTop = e.target.scrollingElement.scrollTop;
       scrollHeight = e.target.scrollingElement.scrollHeight;
       innerHeight = window.innerHeight;
-      if (scrollHeight - innerHeight - scrollTop < 50) {
+      if (scrollHeight - innerHeight - scrollTop < 10) {
         this.pageNo += 1;
+        this.loading = true;
         this.getSearchData(this.searchInput, this.pageNo);
       }
     },
@@ -128,7 +129,6 @@ export default {
         });
     },
     getSearchData(key, pageNo) {
-      this.loading = true;
       let url =
         "soso/fcgi-bin/search_for_qq_cp?g_tk=5381&uin=0&format=json&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&zhidaqu=1&catZhida=1&t=0&flag=1&ie=utf-8&sem=1&aggr=0&perpage=20&n=20&remoteplace=txt.mqq.all&w=" +
         key +
@@ -145,15 +145,18 @@ export default {
           this.loading = false;
         })
         .catch(err => {
+          this.loading = false;
           console.log(err);
         });
     },
     //搜索
     search(key) {
-      if (!this.searchInput) {
+      key = key.trim();
+      if (!key) {
         return;
       }
       this.showSongList = true;
+      this.songList = []; //清除当前缓存的列表
       this.getSearchData(key, 1);
       let arr = [];
       if (localStorage.searchInputArr) {
@@ -161,9 +164,9 @@ export default {
       }
       //判断当前输入的搜索单词是否存在 如果存在则删除原来  增加新的
       arr = arr.filter((item, index, array) => {
-        return item != this.searchInput;
+        return item != key;
       });
-      arr.push(this.searchInput);
+      arr.push(key);
       if (arr.length > 7) {
         arr = arr.slice(arr.length - 7, arr.length);
       }
